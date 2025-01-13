@@ -1,5 +1,5 @@
 import os, math, logging, datetime, pytz, logging.config
-import Update
+from telegram import Update
 from aiohttp import web
 from pyrogram import Client, types
 from database.users_chats_db import db
