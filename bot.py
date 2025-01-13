@@ -1,5 +1,4 @@
 import os, math, logging, datetime, pytz, logging.config
-from telegram import Update
 from aiohttp import web
 from pyrogram import Client, types
 from database.users_chats_db import db
@@ -24,14 +23,6 @@ class Bot(Client):
             plugins=dict(root="plugins")
         )
 
-async def send_searching_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Searching...")
-
-
-async def search_movie(movie_name: str):
-    # Simulate a delay in searching for the movie
-    await asyncio.sleep(3)  # Replace with actual search logic
-    return f"Movie found: {movie_name}"
     
     async def start(self):
         b_users, b_chats = await db.get_banned()
